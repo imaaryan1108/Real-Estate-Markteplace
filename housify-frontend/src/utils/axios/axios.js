@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const withAuthInstance = axios.create({
   // baseURL: 'https://snapshelter-api.herokuapp.com/',
-  baseURL: 'http://localhost:9000/',
+  baseURL: 'https://real-estate-markteplace.onrender.com/',
 
   timeout: 10000,
   headers: {
@@ -12,7 +12,7 @@ export const withAuthInstance = axios.create({
 
 export const withoutAuthInstance = axios.create({
   // baseURL: 'https://snapshelter-api.herokuapp.com/',
-  baseURL: 'http://localhost:9000/',
+  baseURL: 'https://real-estate-markteplace.onrender.com/',
 
   timeout: 10000,
 });
