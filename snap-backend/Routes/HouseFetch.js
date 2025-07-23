@@ -43,7 +43,7 @@ router.get("/house/buy/:location", async (request, response) => {
 
   await House.find({
     "house_location.city": req_location,
-    "house_properties.sale_or_rent": "sell",
+    "house_properties.sale_or_rent": "Sale",
   })
     .exec()
     .then((data) => {
@@ -59,7 +59,7 @@ router.get("/house/rent/:location", async (request, response) => {
 
   await House.find({
     "house_location.city": req_location,
-    "house_properties.sale_or_rent": "rent",
+    "house_properties.sale_or_rent": "Rent",
   })
     .exec()
     .then((data) => {
