@@ -125,6 +125,7 @@ router.post("/bookmarks", async (req, res) => {
 });
 
 router.post("/delete", async (req, res) => {
+  const dbData = req.body;
   try {
     const result = await House.updateOne(
       { user_id: dbData.user_id },
