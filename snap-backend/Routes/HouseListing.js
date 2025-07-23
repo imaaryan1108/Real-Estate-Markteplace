@@ -11,7 +11,7 @@ const api_key = "346221214516497";
 const api_secret = "yyp5BKe92IAX40HtB0PR2s2W1tk";
 
 const mongoURI =
-  "mongodb+srv://dbUser:lddufobioDygq9v2@cluster0.7nxqt.mongodb.net/Houses?retryWrites=true&w=majority";
+  "mongodb+srv://aaryan11:J7E9D9HY2HjyxQav@cluster0.3eed2se.mongodb.net/Houses?retryWrites=true&w=majority";
 
 //-----------------------------Cloudinary Config--------------------------------//
 Cloudinary.config({
@@ -48,17 +48,17 @@ router.post("/houseListing", (req, res) => {
       housePrice,
       bedroomNumber,
       buildUpArea,
-    } = fields; 
+    } = fields;
 
     const { houseImage } = files;
-    console.log(houseImage,fields,files)
+    console.log(houseImage, fields, files, "HERE");
 
     Cloudinary.uploader.upload(
       houseImage.path,
       { folder: "/Assets" },
       async (error, results) => {
-        console.log(results)
-        console.log(error)
+        console.log(results);
+        console.log(error);
         const image_url = results.url;
 
         const newHouseListing = new House({
@@ -79,24 +79,22 @@ router.post("/houseListing", (req, res) => {
             housePrice,
             bedroomNumber,
             houseImage: image_url,
-            buildUpArea
+            buildUpArea,
           },
         });
         const savedListing = await newHouseListing.save();
         return res.status(200).json(savedListing);
       }
     );
-  
   });
 });
-
 
 router.post("/uniqueId", (req, res) => {
   const dbData = req.body;
   House.countDocuments({ user_id: dbData.user_id }, (err, count) => {
     try {
       if (count > 0) {
-        res.status(200).send(count.toString())
+        res.status(200).send(count.toString());
       } else {
         House.create(dbData, (err, data) => {
           if (err) {
