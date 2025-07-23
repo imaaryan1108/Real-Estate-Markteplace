@@ -2,6 +2,9 @@
   "name": "housify-frontend",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "16.20.2"
+  },
   "dependencies": {
     "@auth0/auth0-react": "^1.6.0",
     "@material-ui/core": "^4.12.1",
